@@ -1,6 +1,6 @@
 # 🌸 Smart Flower Lens
 
-An AI-powered web application that identifies flowers from uploaded images. Built with Python, Streamlit, and the power of Google's Gemini 1.5 Flash AI model.
+An AI-powered web application that identifies flowers from uploaded images. Built with Python, Streamlit, and the power of Google's Gemini Flash AI model.
 
 ## ✨ Features
 * **Accurate Identification:** Upload an image of any flower, and the AI will identify it.
