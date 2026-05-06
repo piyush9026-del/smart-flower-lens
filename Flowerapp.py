@@ -38,7 +38,7 @@ uploaded_file=st.file_uploader("Choose an image of a flower",type=["jpg","jpeg",
 # 3. Display the uploaded image and analyze it using Gemini Flash
 if uploaded_file is not None:
     image=Image.open(uploaded_file)
-    st.image(image,caption="Uploaded Image",use_container_width=True)
+    st.image(image,caption="Hello",use_container_width=True)
 
     # Define button to trigger analysis
     if st.button("Identify Flower 🔍"):
@@ -78,4 +78,4 @@ if uploaded_file is not None:
                 st.error(f"Error: {e}")
 
 st.markdown("---")
-st.markdown("Made with ❤️ by Piyush Patel")
+st.markdown("Made with ❤️ by Piyush & Rajpriya")
