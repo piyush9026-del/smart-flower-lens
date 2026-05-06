@@ -20,7 +20,7 @@ model=genai.GenerativeModel('gemini-flash-latest')
 
 # Response from Gemini Flash
 
-def get_gemini_response(prompt,image):
+def get_gemini_response(input,image):
     response=model.generate_content([input,image])
     return response.text
 
