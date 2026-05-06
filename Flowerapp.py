@@ -12,16 +12,13 @@ import google.generativeai as genai   # Import Gemini API client library to inte
 
 # --- CONFIGURATION --- (Accessing Gemini API key from environment variable)
 
-genai.configure(api_key=os.getenv("Gemini_API_KEY"))
-
-# Load Gemini Flash model
-
-model=genai.GenerativeModel('gemini-flash-latest')
+client=genai.Client(api_key=os.getenv("Gemini_API_KEY"))
 
 # Response from Gemini Flash
 
-def get_gemini_response(input,image):
-    response=model.generate_content([input,image])
+def get_gemini_response(prompt,image):
+    contents_list = [prompt, image]
+    response=client.models.generate_content(model='gemini-flash-latest',contents=contents_list)
     return response.text
 
 # --------------------Streamlit App(User Interface)---------------------
@@ -38,7 +35,7 @@ uploaded_file=st.file_uploader("Choose an image of a flower",type=["jpg","jpeg",
 # 3. Display the uploaded image and analyze it using Gemini Flash
 if uploaded_file is not None:
     image=Image.open(uploaded_file)
-    st.image(image,caption="Hello",use_container_width=True)
+    st.image(image,caption="Uploaded Image",use_container_width=True)
 
     # Define button to trigger analysis
     if st.button("Identify Flower 🔍"):
