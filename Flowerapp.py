@@ -8,17 +8,20 @@ load_dotenv()
 import streamlit as st                # Import Streamlit for building web app
 import os                             # Import os for accessing environment variables, computer/server memory, folders, and secrets(like API keys)
 from PIL import Image                 # Import PIL OR PILLOW (Python Imaging Library) for image processing
-from google import genai   # Import Gemini API client library to interact with Gemini Flash model
+import google.generativeai as genai   # Import Gemini API client library to interact with Gemini Flash model
 
 # --- CONFIGURATION --- (Accessing Gemini API key from environment variable)
 
-client=genai.Client(api_key=os.getenv("Gemini_API_KEY"))
+genai.configure(api_key=os.getenv("Gemini_API_KEY"))
+
+# Load Gemini Flash model
+
+model=genai.GenerativeModel('gemini-flash-latest')
 
 # Response from Gemini Flash
 
 def get_gemini_response(prompt,image):
-    contents_list=[prompt,image]
-    response=client.models.generate_content(model='gemini-flash-latest',contents=contents_list)
+    response=model.generate_content([input,image])
     return response.text
 
 # --------------------Streamlit App(User Interface)---------------------
