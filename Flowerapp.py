@@ -20,8 +20,8 @@ model=genai.GenerativeModel('gemini-flash-latest')
 
 # Response from Gemini Flash
 
-def get_gemini_response(input,image):
-    response=model.generate_content([input,image])
+def get_gemini_response(prompt,image):
+    response=model.generate_content([prompt,image])
     return response.text
 
 # --------------------Streamlit App(User Interface)---------------------
@@ -78,4 +78,4 @@ if uploaded_file is not None:
                 st.error(f"Error: {e}")
 
 st.markdown("---")
-st.markdown("Made with ❤️ by Piyush & Rajpriya")
+st.markdown("Made with ❤️ by Piyush Patel")
